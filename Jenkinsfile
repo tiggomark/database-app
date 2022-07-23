@@ -27,7 +27,7 @@ node {
                 -p 3307:3307 \
                 -e MYSQL_ROOT_PASSWORD=leghacy150991 -e MYSQL_DATABASE=customer_app \
                 --network cluster-network \
-                -d mysql:5.8"
+                -d mysql:5.7.38"
         echo "Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso"
         //sendMsgToSlack("Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso")
         //currentBuild.result = "SUCCESS"
