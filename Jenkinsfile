@@ -23,12 +23,11 @@ node {
     stage(name: 'Deploy to Docker Container') {
         echo 'Deploying images to docker container'
         //docker run --network cluster-network -p 8484:8484 --name customer-app -d customer-app:1.0.0
-        sh "docker run --name database-app -d \
+        sh "docker run --name database-app \
                 -p 3307:3307 \
-                --env MYSQL_ROOT_PASSWORD=leghacy150991 --env MYSQL_DATABASE=customer_app \
-                --restart unless-stopped \
+                -e MYSQL_ROOT_PASSWORD=leghacy150991 -e MYSQL_DATABASE=customer_app \
                 --network cluster-network \
-                mysql:5.7"
+                -d mysql:5.7"
         echo "Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso"
         //sendMsgToSlack("Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso")
         //currentBuild.result = "SUCCESS"
