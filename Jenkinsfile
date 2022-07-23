@@ -1,6 +1,6 @@
 #!groovy
 
-PROJECT_NAME = "mysql"
+PROJECT_NAME = "database-app"
 PROJECT_KEY = "tiggomark"
 SCM = "GITHUB"
 
@@ -23,7 +23,7 @@ node {
     stage(name: 'Deploy to Docker Container') {
         echo 'Deploying images to docker container'
         //docker run --network cluster-network -p 8484:8484 --name customer-app -d customer-app:1.0.0
-        sh "docker run --name database-app \
+        sh "docker run --name $PROJECT_NAME \
                 -p 3307:3307 \
                 -e MYSQL_ROOT_PASSWORD=leghacy150991 -e MYSQL_DATABASE=customer_app \
                 --network cluster-network \
