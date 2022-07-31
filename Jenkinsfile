@@ -25,7 +25,7 @@ node {
         //docker run --network cluster-network -p 8484:8484 --name customer-app -d customer-app:1.0.0
 
         sh "docker run --name $PROJECT_NAME \
-                -p 3306:3306 \
+                -p 5432:5432 \
                 --network cluster-network \
                 -e POSTGRES_USER=root \
                 -e POSTGRES_PASSWORD=leghacy150991 \
