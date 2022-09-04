@@ -28,7 +28,7 @@ node {
                 -p 5432:5432 \
                 --network cluster-network \
                 -e POSTGRES_USER=root \
-                -e POSTGRES_PASSWORD=leghacy150991 \
+                -e POSTGRES_PASSWORD=Leghacy123 \
                 -e POSTGRES_DB=customer_app \
                 -d postgres:alpine3.16"
         echo "Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso"
