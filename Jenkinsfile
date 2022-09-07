@@ -28,7 +28,7 @@ node {
                 -p 3306:3306 \
                 --network cluster-network-overlay \
                 -e MYSQL_ROOT_PASSWORD=Leghacy123 \
-                -v dbVolume:/db_volume \
+                --mount source=dbVolume,target=/dbvolume \
                 -e MYSQL_DATABASE=customer_app \
                 -d mysql:8.0"
         echo "Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso"
