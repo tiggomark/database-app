@@ -24,9 +24,9 @@ node {
         echo 'Deploying images to docker container'
         //docker run --network cluster-network -p 8484:8484 --name customer-app -d customer-app:1.0.0
 
-        sh "docker run --name $PROJECT_NAME \
+        sh "docker service create --name $PROJECT_NAME \
                 -p 3306:3306 \
-                --network cluster-network \
+                --network cluster-network-overlay \
                 -e MYSQL_ROOT_PASSWORD=Leghacy123 \
                 -e MYSQL_DATABASE=customer_app \
                 -d mysql:8.0"
